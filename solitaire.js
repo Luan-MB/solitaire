@@ -47,10 +47,10 @@ function shuffleDeck(deck) {
     return deck
 }
 
-function renderPile(pile) {
+function renderTab(pile) {
 
     
-    var tab = document.querySelector("#tab6");
+    var tab = document.querySelector("#tab"+pile.length);
 
     for (let i=0; i<pile.length; i++) {
 
@@ -60,12 +60,11 @@ function renderPile(pile) {
         } else {
             newCard.className = 'card';
         }
-        newCard.innerText = pile[i].valor + pile[i].naipe;
         tab.appendChild(newCard);
     }
-    
     lastChild = tab.lastElementChild;
-    lastChild.className += "flipped";
+    lastChild.innerText = pile[pile.length-1].valor + pile[pile.length-1].naipe;
+    lastChild.className += " flipped";
 }
 
 function fillPile(size,deck) {
@@ -82,15 +81,20 @@ function fillPile(size,deck) {
 function startGame(deck) {
 
     tab1 = fillPile(1,deck);
+    renderTab(tab1);
     tab2 = fillPile(2,deck);
+    renderTab(tab2);
     tab3 = fillPile(3,deck);
+    renderTab(tab3);
     tab4 = fillPile(4,deck);
+    renderTab(tab4);
     tab5 = fillPile(5,deck);
+    renderTab(tab5);
     tab6 = fillPile(6,deck);
-    console.log(tab6);
-    renderPile(tab6);
+    renderTab(tab6);
     tab7 = fillPile(7,deck);
-    stock = deck;
+    renderTab(tab7);
+    stock = fillPile(deck.length,deck)
 }
 
 var deck = createDeck();
