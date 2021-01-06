@@ -1,0 +1,66 @@
+body {
+    background-color: rgb(29, 87, 68);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+#table {
+    margin-left: auto;
+    margin-top: 30px;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: repeat(7,13vw);
+    grid-template-rows: repeat(2,14vh);
+}
+
+ul > li{
+    position: relative;
+    height: 220px;
+    width: 170px;
+    border: 1px dotted black;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 15px;
+    justify-content: center;
+}
+
+.card {
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 5px;
+    background-color: rgba(255, 255, 255, 0.856);
+    border: solid 1px black;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.red {
+    color: red;
+}
+
+.lower .card:nth-child(2) {top: 16px;}
+.lower .card:nth-child(3) {top: 32px;}
+.lower .card:nth-child(4) {top: 48px;}
+.lower .card:nth-child(5) {top: 64px;}
+.lower .card:nth-child(6) {top: 80px;}
+.lower .card:nth-child(7) {top: 96px;}
+.lower .card:nth-child(8) {top: 112px;}
+.lower .card:nth-child(9) {top: 128px;}
+.lower .card:nth-child(10) {top: 144px;}
+.lower .card:nth-child(11) {top: 160px;}
+.lower .card:nth-child(12) {top: 176px;}
+.lower .card:nth-child(13) {top: 192px;}
+.lower .card:nth-child(14) {top: 208px;}
+.lower .card:nth-child(15) {top: 224px;}
+.lower .card:nth-child(16) {top: 240px;}
+.lower .card:nth-child(17) {top: 256px;}
+.lower .card:nth-child(18) {top: 272px;}
+.lower .card:nth-child(19) {top: 288px;}
+
