@@ -1,6 +1,20 @@
 const VALOR = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 const NAIPE = ["♠", "♥", "♦", "♣"]
 
+var stock = [];
+var waste = [];
+var cubs = [];
+var diamonds = [];
+var hearts = [];
+var spades = [];
+var tab1 = [];
+var tab2 = [];
+var tab3 = [];
+var tab4 = [];
+var tab5 = [];
+var tab6 = [];
+var tab7 = [];
+
 class Card {
     constructor(valor, naipe) {
         this.valor = valor
@@ -33,25 +47,53 @@ function shuffleDeck(deck) {
     return deck
 }
 
-function renderTable(deck) {
+function renderPile(pile) {
 
-    for (let i=1; i<=7; i++) {
-        tab = document.querySelector("#tab" +i);
-        
-        for (let j=1; j<=i; j++) {
-            newCard = document.createElement('div');
-            if (deck[i].naipe == "♥" || deck[i].naipe == "♦") {
-                newCard.className = 'card red';
-            } else {
-                newCard.className = 'card';
-            }
-            newCard.innerText = deck[i].valor + deck[i].naipe;
-            tab.appendChild(newCard)
+    
+    var tab = document.querySelector("#tab6");
+
+    for (let i=0; i<pile.length; i++) {
+
+        newCard = document.createElement('div');
+        if (pile[i].naipe == "♥" || pile[i].naipe == "♦") {
+            newCard.className = 'card red';
+        } else {
+            newCard.className = 'card';
         }
+        newCard.innerText = pile[i].valor + pile[i].naipe;
+        tab.appendChild(newCard);
     }
+    
+    lastChild = tab.lastElementChild;
+    lastChild.className += "flipped";
+}
+
+function fillPile(size,deck) {
+
+    let pile = [];
+    
+    for (let i=0; i<size; i++) {
+        card = deck.pop();
+        pile.push(card)
+    }
+    return pile;
+}
+
+function startGame(deck) {
+
+    tab1 = fillPile(1,deck);
+    tab2 = fillPile(2,deck);
+    tab3 = fillPile(3,deck);
+    tab4 = fillPile(4,deck);
+    tab5 = fillPile(5,deck);
+    tab6 = fillPile(6,deck);
+    console.log(tab6);
+    renderPile(tab6);
+    tab7 = fillPile(7,deck);
+    stock = deck;
 }
 
 var deck = createDeck();
 deck = shuffleDeck(deck);
-console.log(deck)
-renderTable(deck);
+startGame(deck);
+
