@@ -16,9 +16,10 @@ var tab6 = [];
 var tab7 = [];
 
 class Card {
-    constructor(valor, naipe) {
+    constructor(valor, naipe, nome) {
         this.valor = valor
         this.naipe = naipe
+        this.nome = nome
     }
 }
 
@@ -28,7 +29,7 @@ function createDeck() {
 
     for (let i=0; i<NAIPE.length; i++) {
         for (let j=0; j<VALOR.length; j++) {
-            cards.push(new Card(VALOR[j], NAIPE[i]))
+            cards.push(new Card(VALOR[j], NAIPE[i], VALOR[j] + NAIPE[i]))
         }
     }
     return cards
@@ -100,4 +101,26 @@ function startGame(deck) {
 var deck = createDeck();
 deck = shuffleDeck(deck);
 startGame(deck);
+console.log(tab6);
 
+
+$('.card').click(function() {
+    parent = $(this).parent().attr('id');
+    card = $(this).html();
+    console.log(parent);
+    console.log(card);
+})
+
+//const cards = document.querySelectorAll(".lower .card.flipped");
+//console.log(cards);
+//cards.forEach(cards => cards.addEventListener('click', clickFunc));
+//
+//function selectCard(e) {
+//    value = e;
+//    value.style.border = 'yellow 2px solid';
+//}
+
+//function clickFunc(e) {
+//   var value = e;
+//    console.log(value);
+//}
